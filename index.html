@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYAP-1 | Resmi Web Sitesi</title>
     
+    <!-- Google Fontları -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
@@ -26,7 +27,7 @@
             scroll-behavior: smooth;
         }
 
-        /* ÜST MENÜ (NAVIGASYON) */
+        /* ÜST MENÜ */
         header {
             position: fixed;
             top: 0;
@@ -36,7 +37,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(8, 10, 16, 0.9);
+            background: rgba(8, 10, 16, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(0, 242, 254, 0.1);
@@ -78,7 +79,6 @@
             text-align: center;
             padding: 0 20px;
             background: radial-gradient(circle at center, rgba(4, 190, 254, 0.15) 0%, rgba(8, 10, 16, 1) 70%);
-            position: relative;
         }
 
         .hero-section h1 {
@@ -98,29 +98,24 @@
             margin-bottom: 40px;
         }
 
-        /* BUTONLAR */
+        /* TEK VE BÜYÜK BUTON */
         .btn-container {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
             justify-content: center;
         }
 
-        .btn {
-            padding: 14px 35px;
-            font-size: 1rem;
+        .btn-primary {
+            padding: 16px 45px;
+            font-size: 1.1rem;
             font-weight: 700;
             text-decoration: none;
             border-radius: 50px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
+            letter-spacing: 1.5px;
             background: linear-gradient(45deg, #0072ff, #00f2fe);
             color: #fff;
             box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+            transition: all 0.3s ease;
         }
 
         .btn-primary:hover {
@@ -128,32 +123,24 @@
             box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
         }
 
-        .btn-secondary {
-            background: #5865F2;
-            color: #fff;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
-        }
-
-        /* ÖZELLİKLER BÖLÜMÜ */
-        .features-section {
+        /* GENEL BÖLÜM AYARLARI */
+        section {
             padding: 100px 5%;
-            background-color: #0c0f17;
             text-align: center;
         }
 
-        .features-section h2 {
+        section h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
             margin-bottom: 50px;
             color: #fff;
+            position: relative;
         }
 
-        .features-grid {
+        /* 1. ÖZELLİKLER */
+        .features-section { background-color: #0c0f17; }
+        
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
@@ -161,7 +148,7 @@
             margin: 0 auto;
         }
 
-        .feature-card {
+        .card {
             background: rgba(255, 255, 255, 0.02);
             padding: 40px 30px;
             border-radius: 15px;
@@ -169,23 +156,76 @@
             transition: 0.3s ease;
         }
 
-        .feature-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.04);
             border-color: #00f2fe;
+            background: rgba(255, 255, 255, 0.04);
         }
 
-        .feature-card h3 {
+        .card h3 {
             font-family: 'Orbitron', sans-serif;
             color: #00f2fe;
             margin-bottom: 15px;
-            font-size: 1.3rem;
         }
 
-        .feature-card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
+        /* 2. MEDYA / GALERİ */
+        .media-section { background-color: #080a10; }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 200px;
+            background: #1f2430;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-weight: bold;
+            border: 1px dashed rgba(0, 242, 254, 0.3);
+        }
+
+        /* 3. GELİŞTİRİCİ GÜNLÜĞÜ (DEVBLOG) */
+        .blog-section { background-color: #0c0f17; }
+        
+        .blog-card {
+            background: #111622;
+            text-align: left;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .blog-content { padding: 25px; }
+        .blog-date { color: #00f2fe; font-size: 0.85rem; margin-bottom: 10px; font-weight: bold; }
+        .blog-card h3 { color: #fff; margin-bottom: 10px; }
+
+        /* 4. EKİBİMİZ */
+        .team-section { background-color: #080a10; }
+        
+        .team-member {
+            background: rgba(255, 255, 255, 0.01);
+            padding: 30px;
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #00f2fe;
+        }
+
+        .team-member h3 { font-size: 1.1rem; color: #fff; }
+        .team-member p { color: #00f2fe; font-size: 0.9rem; }
 
         /* FOOTER */
         footer {
@@ -197,51 +237,99 @@
             font-size: 0.9rem;
         }
 
-        /* MOBIL UYUMLULUK */
         @media (max-width: 768px) {
             .hero-section h1 { font-size: 2.8rem; }
-            .nav-links { display: none; } /* Mobilde menüyü sadeleştirmek için gizledik */
+            .nav-links { display: none; }
             header { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ÜST MENÜ -->
     <header>
         <a href="#" class="logo">AYAP-1</a>
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#features">Özellikler</a></li>
+            <li><a href="#gallery">Galeri</a></li>
+            <li><a href="#devblog">Geliştirici Günlüğü</a></li>
+            <li><a href="#team">Ekip</a></li>
         </ul>
     </header>
 
+    <!-- ANA EKRAN -->
     <section class="hero-section" id="home">
         <h1>AYAP-1</h1>
         <p>Geleceğin savaş alanında yerini al. Stratejini belirle, takımını kur ve AYAP-1 evrenini domine et.</p>
         <div class="btn-container">
-            <a href="https://store.steampowered.com" target="_blank" class="btn btn-primary">Steam'de Listele</a>
-            <a href="https://discord.gg" target="_blank" class="btn btn-secondary">Discord'a Katıl</a>
+            <a href="https://store.steampowered.com" target="_blank" class="btn btn-primary">Steam'de İstek Listesine Ekle</a>
         </div>
     </section>
 
+    <!-- ÖZELLİKLER -->
     <section class="features-section" id="features">
         <h2>Oyun Özellikleri</h2>
-        <div class="features-grid">
-            <div class="feature-card">
+        <div class="grid">
+            <div class="card">
                 <h3>Yeni Nesil Grafikler</h3>
                 <p>En ince ayrıntısına kadar düşünülmüş, atmosferi iliklerinize kadar hissettirecek görsel şölen.</p>
             </div>
-            <div class="feature-card">
+            <div class="card">
                 <h3>Taktiksel Oynanış</h3>
                 <p>Sadece hızlı olan değil, doğru stratejiyi kuran ve ekibiyle senkronize hareket eden kazanır.</p>
             </div>
-            <div class="feature-card">
+            <div class="card">
                 <h3>Dinamik Evren</h3>
-                <p>Sürekli güncellenen haritalar, etkinlikler ve topluluk geri bildirimlerine göre şekillenen bir dünya.</p>
+                <p>Sürekli güncellenen haritalar ve topluluk geri bildirimlerine göre şekillenen bir dünya.</p>
             </div>
         </div>
     </section>
 
+    <!-- GALERİ BÖLÜMÜ -->
+    <section class="media-section" id="gallery">
+        <h2>Ekran Görüntüleri</h2>
+        <div class="gallery">
+            <div class="screenshot-placeholder">Görsel 1 (Yakında)</div>
+            <div class="screenshot-placeholder">Görsel 2 (Yakında)</div>
+            <div class="screenshot-placeholder">Görsel 3 (Yakında)</div>
+        </div>
+    </section>
+
+    <!-- GELİŞTİRİCİ GÜNLÜĞÜ -->
+    <section class="blog-section" id="devblog">
+        <h2>Geliştirici Günlüğü</h2>
+        <div class="grid">
+            <div class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-date">01 TEMMUZ 2026</div>
+                    <h3>Proje Duyurusu: AYAP-1 Doğuyor</h3>
+                    <p>AYAP-1 projemizin resmi olarak geliştirilmeye başlandığını duyurmaktan mutluluk duyuyoruz. İlk prototipler hazır!</p>
+                </div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-content">
+                    <div class="blog-date">04 TEMMUZ 2026</div>
+                    <h3>Resmi Web Sitemiz Yayında!</h3>
+                    <p>Oyuncularımızla buluşacağımız ana üssümüz olan web sitemizi bugün itibariyle aktifleştirdik. Gelişmeler için takipte kalın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKİBİMİZ -->
+    <section class="team-section" id="team">
+        <h2>Geliştirici Ekibi</h2>
+        <div class="grid">
+            <div class="team-member">
+                <h3>Kendi Adın</h3>
+                <p>Kurucu / Geliştirici</p>
+            </div>
+            <!-- Buraya ekipteki diğer arkadaşlarını da ekleyebilirsin -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2026 AYAP-1. Tüm Hakları Saklıdır.</p>
     </footer>
