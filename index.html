@@ -4,93 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AYAP-1 | Resmi Web Sitesi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
-        /* Genel Tasarım Ayarları */
+        /* CSS SIFIRLAMA VE TEMEL AYARLAR */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
-        body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
-            line-height: 1.6;
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: #080a10;
+            color: #e2e8f0;
+            scroll-behavior: smooth;
         }
 
-        /* Navigasyon (Menü) */
-        nav {
+        /* ÜST MENÜ (NAVIGASYON) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background-color: rgba(11, 12, 16, 0.95);
-            position: fixed;
-            width: 100%;
-            top: 0;
+            background: rgba(8, 10, 16, 0.9);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid #1f2833;
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
         }
 
         .logo {
+            font-family: 'Orbitron', sans-serif;
             font-size: 24px;
-            font-weight: bold;
-            color: #66fcf1;
-            letter-spacing: 2px;
+            font-weight: 800;
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+            text-decoration: none;
         }
 
         .nav-links {
-            list-style: none;
             display: flex;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
+            list-style: none;
+            gap: 25px;
         }
 
         .nav-links a {
-            color: #c5c6c7;
+            color: #94a3b8;
             text-decoration: none;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #66fcf1;
+            color: #00f2fe;
         }
 
-        /* Ana Karşılama Ekranı (Hero Section) */
-        .hero {
-            height: 100vh;
+        /* ANA GİRİŞ EKRANI (HERO) */
+        .hero-section {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 20px;
-            /* Arka plana oyununuzdan bir görsel koyabilirsiniz. Şimdilik koyu bir gradyan var. */
-            background: linear-gradient(rgba(11, 12, 16, 0.8), rgba(11, 12, 16, 0.9)), url('oyun-arkaplan.jpg') no-repeat center center/cover;
-            margin-top: 60px;
+            background: radial-gradient(circle at center, rgba(4, 190, 254, 0.15) 0%, rgba(8, 10, 16, 1) 70%);
+            position: relative;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .hero-section h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4.5rem;
+            font-weight: 800;
             color: #ffffff;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
         }
 
-        .hero p {
+        .hero-section p {
             font-size: 1.2rem;
+            color: #94a3b8;
             max-width: 600px;
-            margin-bottom: 30px;
-            color: #45f3ff;
+            margin-bottom: 40px;
         }
 
-        /* Butonlar */
-        .cta-buttons {
+        /* BUTONLAR */
+        .btn-container {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
@@ -98,123 +107,143 @@
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 14px 35px;
             font-size: 1rem;
-            font-weight: bold;
+            font-weight: 700;
             text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease;
+            border-radius: 50px;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-        .btn-steam {
-            background-color: #66fcf1;
-            color: #0b0c10;
+        .btn-primary {
+            background: linear-gradient(45deg, #0072ff, #00f2fe);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
         }
 
-        .btn-steam:hover {
-            background-color: #45f3ff;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.7);
+        .btn-primary:hover {
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
         }
 
-        .btn-discord {
-            background-color: #5865F2;
-            color: #ffffff;
+        .btn-secondary {
+            background: #5865F2;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
         }
 
-        .btn-discord:hover {
-            background-color: #4752c4;
-            box-shadow: 0 0 15px rgba(88, 101, 242, 0.7);
+        .btn-secondary:hover {
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
         }
 
-        /* Hakkında/Özellikler Bölümü */
-        .features {
-            padding: 80px 8%;
+        /* ÖZELLİKLER BÖLÜMÜ */
+        .features-section {
+            padding: 100px 5%;
+            background-color: #0c0f17;
             text-align: center;
-            background-color: #1f2833;
         }
 
-        .features h2 {
+        .features-section h2 {
+            font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            color: #fff;
         }
 
-        .grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .card {
-            background-color: #0b0c10;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #45f3ff;
-            transition: transform 0.3s;
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            transition: 0.3s ease;
         }
 
-        .card:hover {
-            transform: translateY(-10px);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: #00f2fe;
         }
 
-        .card h3 {
-            color: #66fcf1;
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f2fe;
             margin-bottom: 15px;
+            font-size: 1.3rem;
         }
 
-        /* Footer (Alt Kısım) */
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
         footer {
+            padding: 40px;
             text-align: center;
-            padding: 30px;
-            background-color: #0b0c10;
-            border-top: 1px solid #1f2833;
+            background: #080a10;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
             font-size: 0.9rem;
+        }
+
+        /* MOBIL UYUMLULUK */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.8rem; }
+            .nav-links { display: none; } /* Mobilde menüyü sadeleştirmek için gizledik */
+            header { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">AYAP-1</div>
+    <header>
+        <a href="#" class="logo">AYAP-1</a>
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
             <li><a href="#features">Özellikler</a></li>
-            <li><a href="#community">Topluluk</a></li>
         </ul>
-    </nav>
+    </header>
 
-    <section class="hero" id="home">
+    <section class="hero-section" id="home">
         <h1>AYAP-1</h1>
-        <p>Bilinmeyene doğru heyecan dolu bir macera başlıyor. Tarafını seç ve hayatta kal.</p>
-        <div class="cta-buttons">
-            <a href="https://store.steampowered.com" target="_blank" class="btn btn-steam">Steam İstek Listesi</a>
-            <a href="https://discord.gg" target="_blank" class="btn btn-discord">Discord Sunucumuza Katıl</a>
+        <p>Geleceğin savaş alanında yerini al. Stratejini belirle, takımını kur ve AYAP-1 evrenini domine et.</p>
+        <div class="btn-container">
+            <a href="https://store.steampowered.com" target="_blank" class="btn btn-primary">Steam'de Listele</a>
+            <a href="https://discord.gg" target="_blank" class="btn btn-secondary">Discord'a Katıl</a>
         </div>
     </section>
 
-    <section class="features" id="features">
+    <section class="features-section" id="features">
         <h2>Oyun Özellikleri</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Yüksek Aksiyon</h3>
-                <p>Gelişmiş mekanikler ve taktiksel oynanış ile düşmanlarını alt et.</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Yeni Nesil Grafikler</h3>
+                <p>En ince ayrıntısına kadar düşünülmüş, atmosferi iliklerinize kadar hissettirecek görsel şölen.</p>
             </div>
-            <div class="card">
-                <h3>Eşsiz Atmosfer</h3>
-                <p>AYAP-1 evreninin derin, gizemli ve sürükleyici hikayesini keşfet.</p>
+            <div class="feature-card">
+                <h3>Taktiksel Oynanış</h3>
+                <p>Sadece hızlı olan değil, doğru stratejiyi kuran ve ekibiyle senkronize hareket eden kazanır.</p>
             </div>
-            <div class="card">
-                <h3>Çok Oyunculu</h3>
-                <p>Arkadaşlarınla takım kur ya da dünya genelindeki oyunculara karşı savaş.</p>
+            <div class="feature-card">
+                <h3>Dinamik Evren</h3>
+                <p>Sürekli güncellenen haritalar, etkinlikler ve topluluk geri bildirimlerine göre şekillenen bir dünya.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 AYAP-1 Ekibi. Tüm Hakları Saklıdır.</p>
+        <p>&copy; 2026 AYAP-1. Tüm Hakları Saklıdır.</p>
     </footer>
 
 </body>
