@@ -3,80 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İSTİKBAL UZAY | AYAP-1 Ay Misyonu Simülasyonu</title>
+    <title>AYAP-1 | Resmi Web Sitesi</title>
     
+    <!-- Tarayıcı Sekmesindeki Dünya Simgesini AY Yapma (Emoji Favicon) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌕</text></svg>">
+
+    <!-- Google Fontları -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* GENEL SIFIRLAMA VE AKICILIK */
+        /* CSS SIFIRLAMA VE TEMEL AYARLAR */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         html, body {
             width: 100%;
             overflow-x: hidden;
-            background-color: #030712;
+            background-color: #080a10;
             color: #e2e8f0;
             scroll-behavior: smooth;
         }
 
-        /* ÜST MENÜ */
+        /* ÜST MENÜ (NAVIGASYON) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 15px 5%;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(3, 7, 18, 0.95);
-            backdrop-filter: blur(12px);
+            background: rgba(8, 10, 16, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 2px solid #00f2fe;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
         }
 
-        .logo-area {
+        .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-            font-weight: 900;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
-
-        .logo-area span {
-            color: #ff3333;
+            font-size: 24px;
+            font-weight: 800;
+            color: #00f2fe;
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         .nav-links a {
-            font-family: 'Orbitron', sans-serif;
             color: #94a3b8;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 700;
+            font-weight: 500;
             transition: 0.3s;
-            text-transform: uppercase;
         }
 
         .nav-links a:hover {
             color: #00f2fe;
-            text-shadow: 0 0 10px #00f2fe;
         }
 
-        /* ANA EKRAN (HERO SECTION) */
+        /* ANA GİRİŞ EKRANI (HERO) */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -84,285 +80,235 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 80px 20px 20px 20px;
-            background: linear-gradient(rgba(3, 7, 18, 0.65), rgba(3, 7, 18, 0.9)), url('ana-ekran.jpg') no-repeat center center/cover;
-            border-bottom: 2px solid #1e293b;
+            padding: 0 20px;
+            /* İlk gönderdiğin görseli arka plan yapıyoruz */
+            background: linear-gradient(rgba(8, 10, 16, 0.65), rgba(8, 10, 16, 0.9)), url('ana-ekran.jpg') no-repeat center center/cover;
         }
 
         .hero-section h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 4.5rem;
-            font-weight: 900;
+            font-weight: 800;
             color: #ffffff;
-            letter-spacing: 4px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 30px rgba(255, 51, 51, 0.6);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
         }
 
-        .hero-section h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: #00f2fe;
+        .hero-section p {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
             margin-bottom: 40px;
-            font-weight: 700;
-            text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
         }
 
-        /* GÖREVE BAŞLA BUTONU */
-        .btn-start {
-            font-family: 'Orbitron', sans-serif;
-            padding: 18px 50px;
-            font-size: 1.3rem;
-            font-weight: 900;
+        /* BUTON */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 14px 35px;
+            font-size: 1rem;
+            font-weight: 700;
             text-decoration: none;
-            color: #fff;
-            background: linear-gradient(90deg, #ff3333, #ff0055);
-            border: 2px solid #ffffff;
-            border-radius: 10px;
+            border-radius: 50px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 0 25px rgba(255, 51, 51, 0.5);
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #0072ff, #00f2fe);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
             transition: all 0.3s ease;
         }
 
-        .btn-start:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 35px #ff3333;
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 242, 254, 0.5);
         }
 
-        /* GENEL BÖLÜM AYARLARI */
-        section {
+        /* ÖZELLİKLER BÖLÜMÜ */
+        .features-section {
             padding: 100px 5%;
+            background-color: #0c0f17;
             text-align: center;
         }
 
-        section h2 {
+        .features-section h2, .gallery-section h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.5rem;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        /* ROKET SEÇİMİ BÖLÜMÜ */
-        .rocket-section {
-            background-color: #060b18;
-            border-bottom: 1px solid rgba(0, 242, 254, 0.1);
-        }
-
-        .rocket-container {
-            max-width: 1000px;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
             margin: 0 auto;
-            border: 3px solid #00f2fe;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px 30px;
             border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
-            background: #000;
+            border: 1px solid rgba(0, 242, 254, 0.1);
+            transition: 0.3s ease;
         }
 
-        .rocket-container img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: #00f2fe;
         }
 
-        /* GALERİ / SİMÜLASYON ODALARI */
+        .feature-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00f2fe;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* EKLENEN GALERİ BÖLÜMÜ VE CSS DÜZELTMELERİ */
         .gallery-section {
-            background-color: #030712;
+            padding: 100px 5%;
+            background-color: #080a10;
+            text-align: center;
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .gallery-card {
-            background: #0d1527;
+        .gallery-item {
+            background: #0c0f17;
             border-radius: 12px;
             overflow: hidden;
-            border: 2px solid #1e293b;
+            border: 2px solid rgba(0, 242, 254, 0.1);
             transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .gallery-card:hover {
+        .gallery-item:hover {
             border-color: #00f2fe;
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
         }
 
-        .gallery-card img {
+        /* Resimlerin Yamulmaması ve Düzgün Durması İçin CSS */
+        .gallery-item img {
             width: 100%;
-            height: auto;
-            max-height: 280px;
-            object-fit: cover;
+            height: 220px;
+            object-fit: cover; /* Resmi kırpmadan/yamultmadan kutuya sığdırır */
             display: block;
+            border-bottom: 2px solid rgba(0, 242, 254, 0.1);
         }
 
-        .gallery-info {
-            padding: 25px;
-            text-align: left;
-        }
-
-        .gallery-info h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #00f2fe;
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        .gallery-info p {
-            color: #94a3b8;
+        .gallery-desc {
+            padding: 15px;
             font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* GELİŞTİRİCİ GÜNLÜĞÜ (DEVBLOG) */
-        .blog-section {
-            background-color: #060b18;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .blog-card {
-            background: #0d1527;
-            text-align: left;
-            border-radius: 10px;
-            padding: 30px;
-            border-left: 4px solid #ff3333;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-
-        .blog-date {
-            color: #ff3333;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .blog-card h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: #fff;
-            margin-bottom: 12px;
-        }
-
-        .blog-card p {
             color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            font-weight: 500;
         }
 
-        /* FOOTER / ALT BİLGİ */
+        /* FOOTER */
         footer {
-            padding: 50px 20px;
+            padding: 40px;
             text-align: center;
-            background: #030712;
-            border-top: 1px solid #1e293b;
+            background: #080a10;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: #64748b;
             font-size: 0.9rem;
         }
 
-        .footer-logos {
-            margin-top: 20px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            color: #94a3b8;
-            font-weight: 700;
-        }
-
-        /* MOBİL UYUMLULUK AYARLARI */
+        /* MOBIL UYUMLULUK */
         @media (max-width: 768px) {
-            .hero-section h1 { font-size: 2.4rem; }
-            .hero-section h2 { font-size: 1.1rem; }
-            section h2 { font-size: 1.8rem; margin-bottom: 40px; }
-            .gallery-grid { grid-template-columns: 1fr; }
+            .hero-section h1 { font-size: 2.8rem; }
             .nav-links { display: none; }
             header { justify-content: center; }
-            .btn-start { padding: 14px 35px; font-size: 1.1rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
+    <!-- ÜST MENÜ -->
     <header>
-        <div class="logo-area">İSTİKBAL <span>UZAY</span></div>
+        <a href="#" class="logo">AYAP-1</a>
         <ul class="nav-links">
             <li><a href="#home">Ana Sayfa</a></li>
-            <li><a href="#rockets">Roketler</a></li>
-            <li><a href="#simulation">Simülasyon</a></li>
-            <li><a href="#devblog">Geliştirici Günlüğü</a></li>
+            <li><a href="#features">Özellikler</a></li>
+            <li><a href="#gallery">Galeri</a></li>
         </ul>
     </header>
 
+    <!-- ANA EKRAN -->
     <section class="hero-section" id="home">
-        <h1>İSTİKBAL UZAY</h1>
-        <h2>AYAP-1 Ay Misyonu Simülasyonu</h2>
-        <a href="#rockets" class="btn-start">Göreve Başla</a>
-    </section>
-
-    <section class="rocket-section" id="rockets">
-        <h2>Görev Roketini Seç</h2>
-        <div class="rocket-container">
-            <img src="roket-secimi.jpg" alt="AYAP Roket Seçimi">
+        <h1>AYAP-1</h1>
+        <p>Geleceğin savaş alanında yerini al. Stratejini belirle, takımını kur ve AYAP-1 evrenini domine et.</p>
+        <div class="btn-container">
+            <a href="#gallery" class="btn btn-primary">Görselleri İncele</a>
         </div>
     </section>
 
-    <section class="gallery-section" id="simulation">
-        <h2>Simülasyon Merkezleri</h2>
+    <!-- ÖZELLİKLER -->
+    <section class="features-section" id="features">
+        <h2>Oyun Özellikleri</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Yeni Nesil Grafikler</h3>
+                <p>En ince ayrıntısına kadar düşünülmüş, atmosferi iliklerinize kadar hissettirecek görsel şölen.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Taktiksel Oynanış</h3>
+                <p>Sadece hızlı olan değil, doğru stratejiyi kuran ve ekibiyle senkronize hareket eden kazanır.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Dinamik Evren</h3>
+                <p>Sürekli güncellenen haritalar, etkinlikler ve topluluk geri bildirimlerine göre şekillenen bir dünya.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EKLEME YAPILAN GALERİ BÖLÜMÜ -->
+    <section class="gallery-section" id="gallery">
+        <h2>Ekran Görüntüleri</h2>
         <div class="gallery-grid">
             
-            <div class="gallery-card">
-                <img src="simulasyon-erkek.jpg" alt="Uzay Eğitim Merkezi">
-                <div class="gallery-info">
-                    <h3>Uzay Eğitim Merkezi</h3>
-                    <p>Uçuş bilgilerini takip et, yörünge hesaplamalarını doğrula ve simülasyon odasında kalkışa hazırlık yap.</p>
-                </div>
+            <!-- Roket Seçim Görseli -->
+            <div class="gallery-item">
+                <img src="roket-secimi.jpg" alt="AYAP Roket Seçimi">
+                <div class="gallery-desc">Görev İçi Roket Seçim Arayüzü</div>
             </div>
 
-            <div class="gallery-card">
-                <img src="komuta-kadin.jpg" alt="AYAP-1 Komuta Merkezi">
-                <div class="gallery-info">
-                    <h3>AYAP-1 Komuta Kontrol</h3>
-                    <p>Telemetri günlüğünü, yakıt durumunu ve yörünge yüksekliğini anlık olarak kontrol ederek Ay misyonunu başarıyla tamamla.</p>
-                </div>
+            <!-- Erkek Karakter Simülasyon Odası -->
+            <div class="gallery-item">
+                <img src="simulasyon-erkek.jpg" alt="Simülasyon Odası">
+                <div class="gallery-desc">Uzay Eğitim Merkezi & Simülasyon Odası</div>
+            </div>
+
+            <!-- Kadın Karakter Komuta Merkezi -->
+            <div class="gallery-item">
+                <img src="komuta-kadin.jpg" alt="Komuta Kontrol Merkezi">
+                <div class="gallery-desc">AYAP-1 Komuta Kontrol İstasyonu</div>
             </div>
 
         </div>
     </section>
 
-    <section class="blog-section" id="devblog">
-        <h2>Geliştirici Günlüğü</h2>
-        <div class="blog-grid">
-            <div class="blog-card">
-                <div class="blog-date">04 TEMMUZ 2026</div>
-                <h3>TEKNOFEST Hazırlıkları Son Sürat</h3>
-                <p>Milli Teknoloji Hamlesi vizyonuyla geliştirdiğimiz AYAP-1 simülasyon projemizin web arayüz testleri başarıyla tamamlandı.</p>
-            </div>
-            <div class="blog-card">
-                <div class="blog-date">01 TEMMUZ 2026</div>
-                <h3>Yörünge Mekanikleri Entegre Edildi</h3>
-                <p>Simülasyondaki roketlerin Ay yörüngesine oturma, yakıt harcama ve hibrit motor sistem testleri başarıyla simüle edildi.</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 AYAP-1 Proje Ekibi. Tüm Hakları Saklıdır.</p>
-        <div class="footer-logos">
-            #MİLLİTEKNOLOJİHAMLESİ | TEKNOFEST | ROBOZEKA
-        </div>
+        <p>&copy; 2026 AYAP-1. Tüm Hakları Saklıdır.</p>
     </footer>
 
 </body>
